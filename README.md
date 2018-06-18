@@ -181,5 +181,7 @@ export class AppComponent implements OnInit {
 Since we already have form instance listingForm available, we don't need to pass anything to the form. On click you can simply pass on form values to wherever you need, I will cover how to pass value to service and handle form on firestore in future tutorial.
 
 ### Test project ![alt text](https://github.com/mksolemn/angular-universal-seo-with-firestore/blob/master/src/assets/img/sanity-check.jpg "Sanity check")
-Make sure everything is working correctly at this point and you're able to submit form. In console log you can check values that your form has submitted.
+Make sure everything is working correctly at this point and you're able to submit form.
+In console log you can check values that your form has submitted.
+
 This is how our form will look at most basic level, you may want to take snapshot for this one, as in upcoming sections we'll populating card with more and various types of inputs and will add error message handling using Angular material elements.
