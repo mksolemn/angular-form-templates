@@ -150,6 +150,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 Make sure you have the necessary modules to build form imported.
 
 [app.component.ts](https://github.com/mksolemn/angular-form-templates/blob/master/src/app/app.component.ts)
+```javascript
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
