@@ -1,27 +1,101 @@
-# AngularFormPresets
+# Angular 6 with Angular material 6
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
+Ready to use Angular form templates. Easily customizable Angular form templates.
 
-## Development server
+## Using the tutorial
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![alt text](https://github.com/mksolemn/angular-universal-seo-with-firestore/blob/master/src/assets/img/sanity-check.jpg "Sanity check") - this indicates sanity check alert, when you see this, it's time compile the code and check for any errors
 
-## Code scaffolding
+If at any point you're unable to follow the tutorial, please comment or contact me, I'll update the tutorial with any necessary changes.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Generate Angular project
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Generate new project as you please, but keeping these settings will make it easier to follow, but they're not required.
+```
+$ ng new angular-form-presets --prefix=seo --style=scss
+```
 
-## Running unit tests
+1. Generate new project called "universal-seo": ng new universal-seo
+2. Change application prefix to "seo": --prefix=seo
+3. Use scss for styles: --style=scss
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Adding Angular material, Angular CDK & Animations
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Styling forms, including all the cases for error reporting can be tedious, best is to use library like Angular material to
+take care of the styling part and customize desired aspects.
 
-## Further help
+```
+$ npm install --save @angular/material @angular/cdk
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Some Angular material designs require Angular animations module to function properly. We'll need package for that too.
+
+```
+$ npm install --save @angular/animations
+```
+
+Add modules to main app module.
+
+[app.module.ts](https://github.com/mksolemn/angular-form-templates/blob/master/src/app/app.module.ts)
+```javascript
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+@NgModule({
+  ...
+  imports: [BrowserAnimationsModule],
+  ...
+})
+```
+
+For Angular 6 cli, you can use new command to generate module.
+
+```
+ng add @angular/material
+```
+
+
+
+## Add Angular material components for form & Angular Reactive form
+
+You can find full list of available Angular material elements [HERE](https://material.angular.io/components/categories)
+
+#1. Add angular material form field to [app.module.ts](https://github.com/mksolemn/angular-form-templates/blob/master/src/app/app.module.ts)
+
+```javascript
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material';
+
+  imports: [
+    ...
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  exports: [
+    MatFormFieldModule
+  ]
+```
+
+You can read more about Angular material setup [HERE](https://material.angular.io/guide/getting-started)
+
+## Add gesture support - Hammer.js - [NOT MANDATORY FOR NOW]
+
+This is pretty important if you want your app to work properly with mobile devices. I find especially useful for slider and galleries.
+This will walk you through step by step [how to get Hammer.js working on your project](https://github.com/mksolemn/Angular5-ready-to-use-components).
+I suggest using that tutorial since it deals with pitfall of unwanted gesture actions e.g. scrolling instead of invoking action on gallery element.
+
+## Create first material form input element
+[app.component.html](https://github.com/mksolemn/angular-form-templates/blob/master/src/app/app.component.html)
+```html
+  <form class="listing form">
+    <mat-form-field>
+      <input matInput placeholder="Title">
+    </mat-form-field>
+  </form>
+```
+
+### Test project ![alt text](https://github.com/mksolemn/angular-universal-seo-with-firestore/blob/master/src/assets/img/sanity-check.jpg "Sanity check")
