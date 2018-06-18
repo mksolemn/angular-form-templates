@@ -102,13 +102,27 @@ I suggest using that tutorial since it deals with pitfall of unwanted gesture ac
   </form>
 ```
 
-Add submit button for form element
+### Add submit button for form element
+I will omit these imports later on in the tutorial, so keep in mind that you will need to import each new material element to [app.module.ts](https://github.com/mksolemn/angular-form-templates/blob/master/src/app/app.module.ts)
+
+[app.module.ts](https://github.com/mksolemn/angular-form-templates/blob/master/src/app/app.module.ts)
+```
+import {MatButton, ...} from '@angular/material';
+  imports: [
+    ...
+    MatButton,
+    ...
+  ],
+```
+
+[app.component.html](https://github.com/mksolemn/angular-form-templates/blob/master/src/app/app.component.html)
 ```html
 <form>
 ...
 <button mat-raised-button color="accent">Submit</button>
 </form>
 ```
+
 Angular Material has [preset button styles](https://material.angular.io/components/button/overview):
  + mat-button
  + mat-raised-button

@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatCardModule, MatInputModule} from '@angular/material';
+import {MatButton, MatCardModule, MatInputModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -16,9 +16,9 @@ import {MatCardModule, MatInputModule} from '@angular/material';
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
+    MatButton,
     FormsModule,
     ReactiveFormsModule
-
   ],
   exports: [
     MatFormFieldModule
