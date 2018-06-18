@@ -97,7 +97,7 @@ I suggest using that tutorial since it deals with pitfall of unwanted gesture ac
 ```html
   <form class="listing form" (ngSubmit)="onSubmit(listingForm.value)">
     <mat-form-field>
-      <input matInput placeholder="Title">
+      <input formControlName="Title" matInput placeholder="Title">
     </mat-form-field>
   </form>
 ```
@@ -167,14 +167,17 @@ export class AppComponent implements OnInit {
     });
 
   }
+  
   ngOnInit() {
   }
-  onSubmit(form) {
-    console.log(form);
+  
+  onSubmit() {
+    console.log(this.listingForm.value);
   }
-
 }
 ```
+
+Since we already have form instance listingForm available, we don't need to pass anything to the form. On click you can simply pass on form values to wherever you need, I will cover how to pass value to service and handle form on firestore in future tutorial.
 
 ### Test project ![alt text](https://github.com/mksolemn/angular-universal-seo-with-firestore/blob/master/src/assets/img/sanity-check.jpg "Sanity check")
 Make sure everything is working correctly at this point and you're able to submit form. In console log you can check values that your form has submitted.
