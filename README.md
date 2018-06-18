@@ -67,11 +67,13 @@ You can find full list of available Angular material elements [HERE](https://mat
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
+import {MatCardModule, MatInputModule} from '@angular/material';
 
   imports: [
     ...
     MatInputModule,
     MatFormFieldModule,
+    MatCardModule,
     FormsModule,
     ReactiveFormsModule
   ],
@@ -82,6 +84,8 @@ import {MatInputModule} from '@angular/material';
 
 You can read more about Angular material setup [HERE](https://material.angular.io/guide/getting-started)
 
+I'm also adding MatCardModule & MatCardContent modules for styling, you may omit these if you want to focus on main form elements (inputs,checkboxes), since I'm using these 2 modules to style the container for for fields.
+
 ## Add gesture support - Hammer.js - [NOT MANDATORY FOR NOW]
 
 This is pretty important if you want your app to work properly with mobile devices. I find especially useful for slider and galleries.
@@ -91,11 +95,38 @@ I suggest using that tutorial since it deals with pitfall of unwanted gesture ac
 ## Create first material form input element
 [app.component.html](https://github.com/mksolemn/angular-form-templates/blob/master/src/app/app.component.html)
 ```html
-  <form class="listing form">
+  <form class="listing form" (ngSubmit)="onSubmit(listingForm.value)">
     <mat-form-field>
       <input matInput placeholder="Title">
     </mat-form-field>
   </form>
 ```
 
+Add submit button for form element
+```html
+<form>
+...
+<button mat-raised-button color="accent">Submit</button>
+</form>
+```
+Angular Material has [preset button styles](https://material.angular.io/components/button/overview):
+ + mat-button
+ + mat-raised-button
+ + mat-stroked-button
+ + mat-icon-button
+ + mat-fab
+ + mat-mini-fab
+
+## Add reactive form functionality for form element
+[app.module.ts](https://github.com/mksolemn/angular-form-templates/blob/master/src/app/app.module.ts)
+```javascript
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+  imports: [
+    ...
+    FormsModule,
+    ReactiveFormsModule
+```
+
 ### Test project ![alt text](https://github.com/mksolemn/angular-universal-seo-with-firestore/blob/master/src/assets/img/sanity-check.jpg "Sanity check")
+

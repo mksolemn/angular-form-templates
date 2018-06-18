@@ -1,11 +1,19 @@
-<h2>Sample form for real estate property</h2>
-<div>
-  <form class="listing form">
+<mat-card-title>
+  Sample form for real estate property
+</mat-card-title>
+<mat-card>
+  <mat-card-content>
+  <form [formGroup]="listingForm" class="listing form" (ngSubmit)="onSubmit(listingForm.value)">
+    <mat-form-field>
+      <input matInput placeholder="Title">
+    </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="Title">
     </mat-form-field>
   </form>
-</div>
+  </mat-card-content>
+  <button mat-raised-button color="accent">Submit</button>
+</mat-card>
 
 <div>
   <h2>All fields (red - required)</h2>
