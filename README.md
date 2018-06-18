@@ -107,12 +107,16 @@ I will omit these imports later on in the tutorial, so keep in mind that you wil
 
 [app.module.ts](https://github.com/mksolemn/angular-form-templates/blob/master/src/app/app.module.ts)
 ```
-import {MatButton, ...} from '@angular/material';
+import {MatButtonModule, ...} from '@angular/material';
   imports: [
     ...
-    MatButton,
+    MatButtonModule,
     ...
   ],
+    exports: [
+      ...
+      MatButtonModule
+    ],
 ```
 
 [app.component.html](https://github.com/mksolemn/angular-form-templates/blob/master/src/app/app.component.html)
@@ -132,6 +136,7 @@ Angular Material has [preset button styles](https://material.angular.io/componen
  + mat-mini-fab
 
 ## Add reactive form functionality for form element
+
 [app.module.ts](https://github.com/mksolemn/angular-form-templates/blob/master/src/app/app.module.ts)
 ```javascript
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -142,5 +147,35 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule
 ```
 
-### Test project ![alt text](https://github.com/mksolemn/angular-universal-seo-with-firestore/blob/master/src/assets/img/sanity-check.jpg "Sanity check")
+Make sure you have the necessary modules to build form imported.
 
+[app.component.ts](https://github.com/mksolemn/angular-form-templates/blob/master/src/app/app.component.ts)
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+
+@Component({
+  selector: 'seo-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit {
+  listingForm: FormGroup;
+  constructor(private fb: FormBuilder) {
+    // To initialize FormGroup
+    this.listingForm = fb.group({
+      'Title' : [null, Validators.required]
+    });
+
+  }
+  ngOnInit() {
+  }
+  onSubmit(form) {
+    console.log(form);
+  }
+
+}
+```
+
+### Test project ![alt text](https://github.com/mksolemn/angular-universal-seo-with-firestore/blob/master/src/assets/img/sanity-check.jpg "Sanity check")
+Make sure everything is working correctly at this point and you're able to submit form. In console log you can check values that your form has submitted.
+This is how our form will look at most basic level, you may want to take snapshot for this one, as in upcoming sections we'll populating card with more and various types of inputs and will add error message handling using Angular material elements.

@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatButton, MatCardModule, MatInputModule} from '@angular/material';
+import {MatButton, MatButtonModule, MatCardModule, MatInputModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -16,12 +16,13 @@ import {MatButton, MatCardModule, MatInputModule} from '@angular/material';
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
-    MatButton,
+    MatButtonModule,
     FormsModule,
     ReactiveFormsModule
   ],
   exports: [
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
