@@ -36,6 +36,7 @@ Some Angular material designs require Angular animations module to function prop
 $ npm install --save @angular/animations
 ```
 
+#### Option 1:
 Add modules to main app module.
 
 [app.module.ts](https://github.com/mksolemn/angular-form-templates/blob/master/src/app/app.module.ts)
@@ -49,6 +50,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 })
 ```
 
+#### Option 2:
 For Angular 6 cli, you can use new command to generate module.
 
 ```
